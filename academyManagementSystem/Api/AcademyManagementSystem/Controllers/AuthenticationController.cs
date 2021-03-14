@@ -19,7 +19,7 @@ namespace AcademyManagementSystem.Controllers
     {
       this._login = login;
     }
-    [Route("PostUserDetails")]
+    [Route("UserDetailsRegister")]
     [HttpPost]
     public IActionResult UserDetailsRegister([FromBody] RegisterUserDetails usd)
     {
