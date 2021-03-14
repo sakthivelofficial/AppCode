@@ -1,36 +1,36 @@
 <h2>Register</h2>
-<form [formGroup]="registerForm" (ngSubmit)="onSubmit()">
+<form [formGroup]="RegisterForm" (ngSubmit)="onSubmit()">
     <div class="form-group">
-        <label for="firstName">First Name</label>
+        <label for="FirstName">First Name</label>
         <input type="text" formControlName="firstName" class="form-control" [ngClass]="{ 'is-invalid': submitted && f.firstName.errors }" />
     </div>
     <div class="form-group">
-        <label for="lastName">Last Name</label>
+        <label for="LastName">Last Name</label>
         <input type="text" formControlName="lastName" class="form-control" [ngClass]="{ 'is-invalid': submitted && f.lastName.errors }" />
     </div>
-    <div class="form-group">
+    <!-- <div class="form-group">
         <label for="parentname">Parents/guardian Name</label>
         <input type="text" formControlName="parentname" class="form-control" [ngClass]="{ 'is-invalid': submitted && f.username.errors }" />
-    </div>
+    </div> -->
     <div class="form-group">
         <label for="phone">Phone number</label>
-        <input type="password" formControlName="phone" class="form-control" [ngClass]="{ 'is-invalid': submitted && f.password.errors }" />
+        <input type="password" formControlName="Phonenumber" class="form-control" [ngClass]="{ 'is-invalid': submitted && f.password.errors }" />
     </div>
-    <div class="form-group">
+    <!-- <div class="form-group">
         <label for="alt">Alternative Phone number</label>
         <input type="password" formControlName="phone" class="form-control" [ngClass]="{ 'is-invalid': submitted && f.password.errors }" />
-    </div>
+    </div> -->
     <div class="form-group">
         <label for="email">Email</label>
-        <input type="password" formControlName="email" class="form-control" [ngClass]="{ 'is-invalid': submitted && f.password.errors }" />
+        <input type="password" formControlName="Email" class="form-control" [ngClass]="{ 'is-invalid': submitted && f.password.errors }" />
     </div>
-    <div class="form-group">
+    <!-- <div class="form-group">
         <label for="Address">Address</label>
         <input type="password" formControlName="Address" class="form-control" [ngClass]="{ 'is-invalid': submitted && f.password.errors }" />
-    </div>
+    </div> -->
     <div class="form-group">
         <label for="coursedetails">course for which admission is taken</label>
-        <input type="password" formControlName="coursedetails" class="form-control" [ngClass]="{ 'is-invalid': submitted && f.password.errors }" />
+        <input type="password" formControlName="SelectedCourse" class="form-control" [ngClass]="{ 'is-invalid': submitted && f.password.errors }" />
     </div>
     <div class="form-group">
         <button [disabled]="loading" class="btn btn-primary">
