@@ -9,7 +9,7 @@ export class AuthenticationService {
 
   constructor(private http:HttpClient) { }
   PostRegisterDetails(Registerdetails): Observable<any>{
-    return this.http.post("https://localhost:44363/api/Authentication/PostUserDetails",Registerdetails);
+    return this.http.post("https://localhost:44363/api/Authentication/UserDetailsRegister",Registerdetails);
   }
   ValidateLoginDetails(userdetails): Observable<any>{
     return this.http.post("https://localhost:44363/api/Authentication/ValidateUserProfile",userdetails);
