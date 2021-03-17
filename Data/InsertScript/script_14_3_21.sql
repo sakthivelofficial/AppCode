@@ -11,7 +11,7 @@ Password varchar(30)
 select * from ams.UserDetails
 
 insert into ams.UserDetails
-values('sakthi@carnaticgurukulam.com','Sakthi@9994')
+values('pujzza','abc@123')
 
 ALTER TABLE ams.UserDetails
 ADD FirstName varchar(30),
@@ -21,5 +21,5 @@ ADD FirstName varchar(30),
  SelectedCourse varchar(30)
 
  update ams.UserDetails
- SET UserName = 'SakthiMusic'
+ SET UserName = 'pujzza'
  where id =1
