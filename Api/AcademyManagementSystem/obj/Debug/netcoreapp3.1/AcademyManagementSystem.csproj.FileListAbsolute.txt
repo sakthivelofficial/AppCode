@@ -45,8 +45,6 @@ D:\GitHub Repo\MusicAcademy\Api\AcademyManagementSystem\bin\Debug\netcoreapp3.1\
 D:\GitHub Repo\MusicAcademy\Api\AcademyManagementSystem\obj\Debug\netcoreapp3.1\AcademyManagementSystem.csprojAssemblyReference.cache
 D:\GitHub Repo\MusicAcademy\Api\AcademyManagementSystem\obj\Debug\netcoreapp3.1\AcademyManagementSystem.AssemblyInfoInputs.cache
 D:\GitHub Repo\MusicAcademy\Api\AcademyManagementSystem\obj\Debug\netcoreapp3.1\AcademyManagementSystem.AssemblyInfo.cs
-D:\GitHub Repo\MusicAcademy\Api\AcademyManagementSystem\obj\Debug\netcoreapp3.1\AcademyManagementSystem.csproj.CoreCompileInputs.cache
-D:\GitHub Repo\MusicAcademy\Api\AcademyManagementSystem\obj\Debug\netcoreapp3.1\AcademyManagementSystem.MvcApplicationPartsAssemblyInfo.cache
 D:\GitHub Repo\MusicAcademy\Api\AcademyManagementSystem\obj\Debug\netcoreapp3.1\AcademyManagementSystem.RazorTargetAssemblyInfo.cache
 D:\GitHub Repo\MusicAcademy\Api\AcademyManagementSystem\obj\Debug\netcoreapp3.1\AcademyManagementSystem.csproj.CopyComplete
 D:\GitHub Repo\MusicAcademy\Api\AcademyManagementSystem\obj\Debug\netcoreapp3.1\staticwebassets\AcademyManagementSystem.StaticWebAssets.Manifest.cache
@@ -54,31 +52,21 @@ D:\GitHub Repo\MusicAcademy\Api\AcademyManagementSystem\obj\Debug\netcoreapp3.1\
 D:\GitHub Repo\MusicAcademy\Api\AcademyManagementSystem\obj\Debug\netcoreapp3.1\AcademyManagementSystem.dll
 D:\GitHub Repo\MusicAcademy\Api\AcademyManagementSystem\obj\Debug\netcoreapp3.1\AcademyManagementSystem.pdb
 D:\GitHub Repo\MusicAcademy\Api\AcademyManagementSystem\obj\Debug\netcoreapp3.1\AcademyManagementSystem.genruntimeconfig.cache
-C:\Users\Sakthi\Documents\GitHub\AppCode\Api\AcademyManagementSystem\bin\Debug\netcoreapp3.1\appsettings.Development.json
-C:\Users\Sakthi\Documents\GitHub\AppCode\Api\AcademyManagementSystem\bin\Debug\netcoreapp3.1\appsettings.json
-C:\Users\Sakthi\Documents\GitHub\AppCode\Api\AcademyManagementSystem\bin\Debug\netcoreapp3.1\AcademyManagementSystem.exe
-C:\Users\Sakthi\Documents\GitHub\AppCode\Api\AcademyManagementSystem\bin\Debug\netcoreapp3.1\AcademyManagementSystem.deps.json
-C:\Users\Sakthi\Documents\GitHub\AppCode\Api\AcademyManagementSystem\bin\Debug\netcoreapp3.1\AcademyManagementSystem.runtimeconfig.json
-C:\Users\Sakthi\Documents\GitHub\AppCode\Api\AcademyManagementSystem\bin\Debug\netcoreapp3.1\AcademyManagementSystem.runtimeconfig.dev.json
-C:\Users\Sakthi\Documents\GitHub\AppCode\Api\AcademyManagementSystem\bin\Debug\netcoreapp3.1\AcademyManagementSystem.dll
-C:\Users\Sakthi\Documents\GitHub\AppCode\Api\AcademyManagementSystem\bin\Debug\netcoreapp3.1\AcademyManagementSystem.pdb
-C:\Users\Sakthi\Documents\GitHub\AppCode\Api\AcademyManagementSystem\bin\Debug\netcoreapp3.1\Dapper.dll
-C:\Users\Sakthi\Documents\GitHub\AppCode\Api\AcademyManagementSystem\bin\Debug\netcoreapp3.1\System.Data.SqlClient.dll
-C:\Users\Sakthi\Documents\GitHub\AppCode\Api\AcademyManagementSystem\bin\Debug\netcoreapp3.1\runtimes\win-arm64\native\sni.dll
-C:\Users\Sakthi\Documents\GitHub\AppCode\Api\AcademyManagementSystem\bin\Debug\netcoreapp3.1\runtimes\win-x64\native\sni.dll
-C:\Users\Sakthi\Documents\GitHub\AppCode\Api\AcademyManagementSystem\bin\Debug\netcoreapp3.1\runtimes\win-x86\native\sni.dll
-C:\Users\Sakthi\Documents\GitHub\AppCode\Api\AcademyManagementSystem\bin\Debug\netcoreapp3.1\runtimes\unix\lib\netcoreapp2.1\System.Data.SqlClient.dll
-C:\Users\Sakthi\Documents\GitHub\AppCode\Api\AcademyManagementSystem\bin\Debug\netcoreapp3.1\runtimes\win\lib\netcoreapp2.1\System.Data.SqlClient.dll
-C:\Users\Sakthi\Documents\GitHub\AppCode\Api\AcademyManagementSystem\obj\Debug\netcoreapp3.1\AcademyManagementSystem.csprojAssemblyReference.cache
-C:\Users\Sakthi\Documents\GitHub\AppCode\Api\AcademyManagementSystem\obj\Debug\netcoreapp3.1\AcademyManagementSystem.AssemblyInfoInputs.cache
-C:\Users\Sakthi\Documents\GitHub\AppCode\Api\AcademyManagementSystem\obj\Debug\netcoreapp3.1\AcademyManagementSystem.AssemblyInfo.cs
-C:\Users\Sakthi\Documents\GitHub\AppCode\Api\AcademyManagementSystem\obj\Debug\netcoreapp3.1\AcademyManagementSystem.csproj.CoreCompileInputs.cache
-C:\Users\Sakthi\Documents\GitHub\AppCode\Api\AcademyManagementSystem\obj\Debug\netcoreapp3.1\AcademyManagementSystem.MvcApplicationPartsAssemblyInfo.cache
-C:\Users\Sakthi\Documents\GitHub\AppCode\Api\AcademyManagementSystem\obj\Debug\netcoreapp3.1\staticwebassets\AcademyManagementSystem.StaticWebAssets.Manifest.cache
-C:\Users\Sakthi\Documents\GitHub\AppCode\Api\AcademyManagementSystem\obj\Debug\netcoreapp3.1\staticwebassets\AcademyManagementSystem.StaticWebAssets.xml
-C:\Users\Sakthi\Documents\GitHub\AppCode\Api\AcademyManagementSystem\obj\Debug\netcoreapp3.1\scopedcss\bundle\AcademyManagementSystem.styles.css
-C:\Users\Sakthi\Documents\GitHub\AppCode\Api\AcademyManagementSystem\obj\Debug\netcoreapp3.1\AcademyManagementSystem.RazorTargetAssemblyInfo.cache
-C:\Users\Sakthi\Documents\GitHub\AppCode\Api\AcademyManagementSystem\obj\Debug\netcoreapp3.1\AcademyManagementSystem.csproj.CopyComplete
-C:\Users\Sakthi\Documents\GitHub\AppCode\Api\AcademyManagementSystem\obj\Debug\netcoreapp3.1\AcademyManagementSystem.dll
-C:\Users\Sakthi\Documents\GitHub\AppCode\Api\AcademyManagementSystem\obj\Debug\netcoreapp3.1\AcademyManagementSystem.pdb
-C:\Users\Sakthi\Documents\GitHub\AppCode\Api\AcademyManagementSystem\obj\Debug\netcoreapp3.1\AcademyManagementSystem.genruntimeconfig.cache
+D:\GitHub Repo\MusicAcademy\Api\AcademyManagementSystem\bin\Debug\netcoreapp3.1\Microsoft.AspNetCore.JsonPatch.dll
+D:\GitHub Repo\MusicAcademy\Api\AcademyManagementSystem\bin\Debug\netcoreapp3.1\Microsoft.DotNet.InternalAbstractions.dll
+D:\GitHub Repo\MusicAcademy\Api\AcademyManagementSystem\bin\Debug\netcoreapp3.1\Microsoft.Extensions.DependencyModel.dll
+D:\GitHub Repo\MusicAcademy\Api\AcademyManagementSystem\bin\Debug\netcoreapp3.1\Microsoft.Extensions.PlatformAbstractions.dll
+D:\GitHub Repo\MusicAcademy\Api\AcademyManagementSystem\bin\Debug\netcoreapp3.1\Namotion.Reflection.dll
+D:\GitHub Repo\MusicAcademy\Api\AcademyManagementSystem\bin\Debug\netcoreapp3.1\Newtonsoft.Json.dll
+D:\GitHub Repo\MusicAcademy\Api\AcademyManagementSystem\bin\Debug\netcoreapp3.1\NJsonSchema.dll
+D:\GitHub Repo\MusicAcademy\Api\AcademyManagementSystem\bin\Debug\netcoreapp3.1\NJsonSchema.Yaml.dll
+D:\GitHub Repo\MusicAcademy\Api\AcademyManagementSystem\bin\Debug\netcoreapp3.1\NSwag.Annotations.dll
+D:\GitHub Repo\MusicAcademy\Api\AcademyManagementSystem\bin\Debug\netcoreapp3.1\NSwag.AspNetCore.dll
+D:\GitHub Repo\MusicAcademy\Api\AcademyManagementSystem\bin\Debug\netcoreapp3.1\NSwag.Core.dll
+D:\GitHub Repo\MusicAcademy\Api\AcademyManagementSystem\bin\Debug\netcoreapp3.1\NSwag.Core.Yaml.dll
+D:\GitHub Repo\MusicAcademy\Api\AcademyManagementSystem\bin\Debug\netcoreapp3.1\NSwag.Generation.dll
+D:\GitHub Repo\MusicAcademy\Api\AcademyManagementSystem\bin\Debug\netcoreapp3.1\NSwag.Generation.AspNetCore.dll
+D:\GitHub Repo\MusicAcademy\Api\AcademyManagementSystem\bin\Debug\netcoreapp3.1\YamlDotNet.dll
+D:\GitHub Repo\MusicAcademy\Api\AcademyManagementSystem\obj\Debug\netcoreapp3.1\AcademyManagementSystem.csproj.CoreCompileInputs.cache
+D:\GitHub Repo\MusicAcademy\Api\AcademyManagementSystem\obj\Debug\netcoreapp3.1\AcademyManagementSystem.MvcApplicationPartsAssemblyInfo.cs
+D:\GitHub Repo\MusicAcademy\Api\AcademyManagementSystem\obj\Debug\netcoreapp3.1\AcademyManagementSystem.MvcApplicationPartsAssemblyInfo.cache
