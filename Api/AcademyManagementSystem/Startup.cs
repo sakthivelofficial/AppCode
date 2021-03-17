@@ -37,8 +37,8 @@ namespace AcademyManagementSystem
       //});
       services.AddControllers();
       services.AddTransient<IAuthentication, Authentication>();
-
-    }
+      services.AddSwaggerDocument();
+        }
 
     // This method gets called by the runtime. Use this method to configure the HTTP request pipeline.
     public void Configure(IApplicationBuilder app, IWebHostEnvironment env)
@@ -60,6 +60,8 @@ namespace AcademyManagementSystem
             {
                 endpoints.MapControllers();
             });
+            app.UseOpenApi();
+            app.UseSwaggerUi3();
         }
     }
 }
