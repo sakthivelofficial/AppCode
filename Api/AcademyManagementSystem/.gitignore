@@ -1,0 +1,8 @@
+
+*.pdb
+*.cache
+*.dll
+*.dev
+*.json
+*.suo
+*.config

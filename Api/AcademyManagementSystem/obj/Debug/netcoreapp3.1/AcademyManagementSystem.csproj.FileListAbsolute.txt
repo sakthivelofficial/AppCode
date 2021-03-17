@@ -57,6 +57,7 @@ D:\GitHub Repo\MusicAcademy\Api\AcademyManagementSystem\bin\Debug\netcoreapp3.1\
 D:\GitHub Repo\MusicAcademy\Api\AcademyManagementSystem\bin\Debug\netcoreapp3.1\runtimes\win-x86\native\sni.dll
 D:\GitHub Repo\MusicAcademy\Api\AcademyManagementSystem\bin\Debug\netcoreapp3.1\runtimes\unix\lib\netcoreapp2.1\System.Data.SqlClient.dll
 D:\GitHub Repo\MusicAcademy\Api\AcademyManagementSystem\bin\Debug\netcoreapp3.1\runtimes\win\lib\netcoreapp2.1\System.Data.SqlClient.dll
+D:\GitHub Repo\MusicAcademy\Api\AcademyManagementSystem\obj\Debug\netcoreapp3.1\AcademyManagementSystem.csprojAssemblyReference.cache
 D:\GitHub Repo\MusicAcademy\Api\AcademyManagementSystem\obj\Debug\netcoreapp3.1\AcademyManagementSystem.AssemblyInfoInputs.cache
 D:\GitHub Repo\MusicAcademy\Api\AcademyManagementSystem\obj\Debug\netcoreapp3.1\AcademyManagementSystem.AssemblyInfo.cs
 D:\GitHub Repo\MusicAcademy\Api\AcademyManagementSystem\obj\Debug\netcoreapp3.1\AcademyManagementSystem.csproj.CoreCompileInputs.cache
