@@ -1,67 +1,86 @@
 /* You can add global styles to this file, and also import other style files */
+@import "../node_modules/@swimlane/ngx-datatable/themes/bootstrap.scss";
 
+@font-face {
+  font-family: Raleway M;
+  src: url(./assets/Fonts/raleway/Raleway-Medium.ttf) format("truetype");
+}
+@font-face {
+  font-family: Raleway B;
+  src: url(./assets/Fonts/raleway/Raleway-Bold.ttf) format("truetype");
+}
+@font-face {
+  font-family: Raleway L;
+  src: url(./assets/Fonts/raleway/Raleway-Light.ttf) format("truetype");
+}
 
-body { margin: 0px;
-    height: 100vh;
-    transition: 300ms ease all;
-    overflow-y: scroll;
- font-family: Roboto, "Helvetica Neue", sans-serif; }
+body {
+  margin: 0px;
+  height: 100vh;
+  transition: 300ms ease all;
+  overflow-y: scroll;
+  
+}
+*{
+  font-family: "Raleway M";
+}
+
 .closemenu-icon {
-    background: url(./assets/Icons/times-solid.svg);
-    height: 20px;
-    width: 20px;
-    background-size: contain;
-    background-position: center;
-    background-repeat: no-repeat;
-  }
-  .pageHeight{
+  background: url(./assets/Icons/times-solid.svg);
+  height: 20px;
+  width: 20px;
+  background-size: contain;
+  background-position: center;
+  background-repeat: no-repeat;
+}
+.pageHeight {
   height: calc(100% - 64px) !important;
-  }
-  .students-icon {
-    background: url(./assets/Icons/students-icon.svg);
-    height: 25px;
-    width: 25px;
-    background-size: contain;
-    background-position: center;
-    background-repeat: no-repeat;
-    margin: auto 10px;
-  }
-  .staff-icon {
-    background: url(./assets/Icons/staff-icons.svg);
-    height: 25px;
-    width: 25px;
-    background-size: contain;
-    background-position: center;
-    background-repeat: no-repeat;
-    margin: auto 10px;
-  }
-  .courses-icon {
-    background: url(./assets/Icons/courses-icon.svg);
-    height: 15px;
-    width: 15px;
-    background-size: contain;
-    background-position: center;
-    background-repeat: no-repeat;
-    margin: auto 10px;
-  }
-  .home-icon {
-    background: url(./assets/Icons/home-button.svg);
-    height: 20px;
-    width: 20px;
-    background-size: contain;
-    background-position: center;
-    background-repeat: no-repeat;
-    margin: auto 10px;
-  }
-  .fee-icon {
-    background: url(./assets/Icons/receipt-solid.svg);
-    height: 20px;
-    width: 20px;
-    background-size: contain;
-    background-position: center;
-    background-repeat: no-repeat;
-    margin: auto 10px;
-  }
-  .d-flex{
-    display: flex;
-  }
+}
+.students-icon {
+  background: url(./assets/Icons/students-icon.svg);
+  height: 25px;
+  width: 25px;
+  background-size: contain;
+  background-position: center;
+  background-repeat: no-repeat;
+  margin: auto 10px;
+}
+.staff-icon {
+  background: url(./assets/Icons/staff-icons.svg);
+  height: 25px;
+  width: 25px;
+  background-size: contain;
+  background-position: center;
+  background-repeat: no-repeat;
+  margin: auto 10px;
+}
+.courses-icon {
+  background: url(./assets/Icons/courses-icon.svg);
+  height: 15px;
+  width: 15px;
+  background-size: contain;
+  background-position: center;
+  background-repeat: no-repeat;
+  margin: auto 10px;
+}
+.home-icon {
+  background: url(./assets/Icons/home-button.svg);
+  height: 20px;
+  width: 20px;
+  background-size: contain;
+  background-position: center;
+  background-repeat: no-repeat;
+  margin: auto 10px;
+}
+.fee-icon {
+  background: url(./assets/Icons/receipt-solid.svg);
+  height: 20px;
+  width: 20px;
+  background-size: contain;
+  background-position: center;
+  background-repeat: no-repeat;
+  margin: auto 10px;
+}
+.d-flex {
+  display: flex;
+}
