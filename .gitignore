@@ -13,3 +13,7 @@ Api/AcademyManagementSystem/Properties/launchSettings.json
 Api/AcademyManagementSystem/obj/project.nuget.cache
 Api/AcademyManagementSystem/bin/Debug/netcoreapp3.1/Properties/launchSettings.json
 Api/AcademyManagementSystem/obj/Debug/netcoreapp3.1/AcademyManagementSystem.exe
+Api/AcademyManagementSystem/bin/Debug/netcoreapp3.1/AcademyManagementSystem.dll
+*.pdb
+*.cache
+*.dll
