@@ -17,6 +17,9 @@ import { AddCourseComponent } from './Courses/add-course/add-course.component';
 import { ManageCourseComponent } from './Courses/manage-course/manage-course.component';
 import { NewStaffComponent } from './Staff/new-staff/new-staff.component';
 import { ManageStaffComponent } from './Staff/manage-staff/manage-staff.component';
+import { DashboardComponent } from './dashboard/dashboard.component';
+import { AddFeeComponent } from './Fees/add-fee/add-fee.component';
+import { ManageFeeComponent } from './Fees/manage-fee/manage-fee.component';
 @NgModule({
   declarations: [
     AppComponent,
@@ -28,7 +31,10 @@ import { ManageStaffComponent } from './Staff/manage-staff/manage-staff.componen
     AddCourseComponent,
     ManageCourseComponent,
     NewStaffComponent,
-    ManageStaffComponent
+    ManageStaffComponent,
+    DashboardComponent,
+    AddFeeComponent,
+    ManageFeeComponent
   ],
   imports: [
     BrowserModule,
