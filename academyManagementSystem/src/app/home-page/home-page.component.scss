@@ -24,4 +24,28 @@
   .mat-menu-item:hover .mat-icon{
     color: #aa3c9f;
   }
+
+  .sidenav{
+    width: 200px !important;
+  }
+
+  .menu-item{
+    padding: 10px;
+    align-self: center;
+    cursor: pointer;
+    margin-bottom: 5px;
+  }
+
+  .sub-menu-item{
+    padding: 10px;
+    text-indent: 20px;
+    cursor: pointer;
+    &:hover{
+      background-color: #c4d9ef;
+      font-weight: 600;
+      border-radius: 20px;
+    }
+  }
+
   
+
