@@ -8,7 +8,7 @@ import { RegisterComponent } from './register/register.component';
 import { ReactiveFormsModule } from '@angular/forms';
 import { HomePageComponent } from './home-page/home-page.component';
 import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
-import { MatToolbarModule, MatSidenavModule, MatListModule, MatButtonModule, MatIconModule, MatMenuModule } from "@angular/material";
+import { MatToolbarModule, MatSidenavModule, MatListModule, MatButtonModule, MatIconModule, MatMenuModule, MatCardModule, MatInputModule } from "@angular/material";
 import {MatTooltipModule} from '@angular/material/tooltip';
 import { HttpClientModule } from '@angular/common/http';
 import { AddStudentComponent } from './Students/add-student/add-student.component';
@@ -52,6 +52,8 @@ import { ManageFeeComponent } from './Fees/manage-fee/manage-fee.component';
     MatMenuModule,
     MatTooltipModule,
     BrowserAnimationsModule,
+    MatInputModule,
+    MatCardModule,
   ],
   providers: [],
   bootstrap: [AppComponent]
