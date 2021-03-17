@@ -12,3 +12,4 @@ Data/InsertScript/script_14_3_21.sql
 Api/AcademyManagementSystem/Properties/launchSettings.json
 Api/AcademyManagementSystem/obj/project.nuget.cache
 Api/AcademyManagementSystem/bin/Debug/netcoreapp3.1/Properties/launchSettings.json
+Api/AcademyManagementSystem/obj/Debug/netcoreapp3.1/AcademyManagementSystem.exe
