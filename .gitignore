@@ -17,3 +17,6 @@ Api/AcademyManagementSystem/bin/Debug/netcoreapp3.1/AcademyManagementSystem.dll
 *.pdb
 *.cache
 *.dll
+Api/AcademyManagementSystem/.vs/AcademyManagementSystem/v16/.suo
+*.json
+Api/AcademyManagementSystem/.vs/AcademyManagementSystem/v16/.suo
