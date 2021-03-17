@@ -20,6 +20,7 @@ import { ManageStaffComponent } from './Staff/manage-staff/manage-staff.componen
 import { DashboardComponent } from './dashboard/dashboard.component';
 import { AddFeeComponent } from './Fees/add-fee/add-fee.component';
 import { ManageFeeComponent } from './Fees/manage-fee/manage-fee.component';
+import { NgxChartsModule } from '@swimlane/ngx-charts';
 @NgModule({
   declarations: [
     AppComponent,
@@ -54,6 +55,7 @@ import { ManageFeeComponent } from './Fees/manage-fee/manage-fee.component';
     BrowserAnimationsModule,
     MatInputModule,
     MatCardModule,
+    NgxChartsModule
   ],
   providers: [],
   bootstrap: [AppComponent]

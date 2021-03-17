@@ -1,0 +1,26 @@
+.card-container {
+  margin: auto 20px;
+  width: 350px;
+//   &:hover {
+//     background-color: black;
+//     color: white;
+//   }
+}
+
+.card-count {
+  text-align: center;
+}
+
+.cardTitle {
+  text-align: center !important;
+}
+
+.cardHeader {
+  height: 30px;
+  border-bottom: 1px dotted darkgray;
+}
+
+.cardContent {
+  margin: 5px 0px;
+  height: auto;
+}

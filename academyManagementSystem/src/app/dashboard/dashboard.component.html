@@ -1,0 +1,26 @@
+<div class="d-flex">
+  <div *ngFor="let card of dashboradcards" style="margin: 30px auto">
+    <mat-card class="card-container">
+      <div class="cardHeader">
+        <div class="cardTitle">{{ card.title }}</div>
+      </div>
+      <mat-card-content class="cardContent">
+        <div *ngIf="card.isPieChar">
+          <ngx-charts-pie-chart
+            [view]="view"
+            [scheme]="colorScheme"
+            [results]="card.PieValue"
+            [gradient]="gradient"
+            [labels]="showLabels"
+            [doughnut]="isDoughnut"
+            [legend]="showLegend"
+            [legendPosition]="legendPosition"
+          >
+          </ngx-charts-pie-chart>
+        </div>
+        <br>
+        <div class="card-count">Count : {{ card.count }}</div>
+      </mat-card-content>
+    </mat-card>
+  </div>
+</div>
