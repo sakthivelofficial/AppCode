@@ -3,6 +3,6 @@ CREATE TYPE [ams].[StudentCourse] as TABLE(
 	[StudentID] [int]  NULL,
 	CourseId [int]  NULL,
 	LevelId [int]  NULL,
-	GradeId [int]  NULL
+	GradeId [int]  NULL,
+	isCompleted [int]  NULL
 	)
-

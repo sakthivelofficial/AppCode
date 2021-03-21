@@ -1,7 +1,9 @@
 ﻿using System;
 using System.Collections.Generic;
 using System.Linq;
+using System.Net;
 using System.Threading.Tasks;
+using AcademyManagementSystem.Manager.Interface;
 using AcademyManagementSystem.Models;
 using Microsoft.AspNetCore.Mvc;
 using NSwag.Annotations;
@@ -14,12 +16,17 @@ namespace AcademyManagementSystem.Controllers
     [ApiController]
     public class StudentsController : ControllerBase
     {
+        public IStudentManager studentmanger;
+        public StudentsController(IStudentManager student) {
+            studentmanger = student;
+        }
         [Route("StudentAdmission")]
         [HttpPost]
         [SwaggerResponse(typeof(int))]
-        public async Task<int> InsertStudentAdmission(InsertStudent student)
+        public async Task<IActionResult> InsertStudentAdmission(InsertStudent student)
         {
-            return 0;
+           int stat = await studentmanger.InsertStudentAdmission(student);
+            return Ok(stat);
         }
     }
 }
