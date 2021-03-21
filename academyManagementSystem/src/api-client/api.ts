@@ -9,10 +9,10 @@
 
 import { mergeMap as _observableMergeMap, catchError as _observableCatch } from 'rxjs/operators';
 import { Observable, throwError as _observableThrow, of as _observableOf } from 'rxjs';
-import { Injectable, Inject, Optional, OpaqueToken } from '@angular/core';
+import { Injectable, Inject, Optional, InjectionToken } from '@angular/core';
 import { HttpClient, HttpHeaders, HttpResponse, HttpResponseBase } from '@angular/common/http';
 
-export const API_BASE_URL = new OpaqueToken('API_BASE_URL');
+export const API_BASE_URL = new InjectionToken<string>('API_BASE_URL');
 
 export interface IAuthenticationClient {
     userDetailsRegister(usd: RegisterUserDetails): Observable<FileResponse | null>;
@@ -40,6 +40,7 @@ export class AuthenticationClient implements IAuthenticationClient {
             body: content_,
             observe: "response",
             responseType: "blob",
+            withCredentials: true,
             headers: new HttpHeaders({
                 "Content-Type": "application/json",
                 "Accept": "application/octet-stream"
@@ -90,6 +91,7 @@ export class AuthenticationClient implements IAuthenticationClient {
             body: content_,
             observe: "response",
             responseType: "blob",
+            withCredentials: true,
             headers: new HttpHeaders({
                 "Content-Type": "application/json",
                 "Accept": "application/octet-stream"
@@ -153,6 +155,7 @@ export class WeatherForecastClient implements IWeatherForecastClient {
         let options_ : any = {
             observe: "response",
             responseType: "blob",
+            withCredentials: true,
             headers: new HttpHeaders({
                 "Accept": "application/json"
             })
@@ -179,15 +182,14 @@ export class WeatherForecastClient implements IWeatherForecastClient {
             (<any>response).error instanceof Blob ? (<any>response).error : undefined;
 
         let _headers: any = {}; if (response.headers) { for (let key of response.headers.keys()) { _headers[key] = response.headers.get(key); }}
-        let _mappings: { source: any, target: any }[] = [];
         if (status === 200) {
             return blobToText(responseBlob).pipe(_observableMergeMap(_responseText => {
             let result200: any = null;
-            let resultData200 = _responseText === "" ? null : jsonParse(_responseText, this.jsonParseReviver);
+            let resultData200 = _responseText === "" ? null : JSON.parse(_responseText, this.jsonParseReviver);
             if (Array.isArray(resultData200)) {
                 result200 = [] as any;
                 for (let item of resultData200)
-                    result200!.push(WeatherForecast.fromJS(item, _mappings));
+                    result200!.push(WeatherForecast.fromJS(item));
             }
             return _observableOf(result200);
             }));
@@ -216,7 +218,7 @@ export class RegisterUserDetails implements IRegisterUserDetails {
         }
     }
 
-    init(_data?: any, _mappings?: any) {
+    init(_data?: any) {
         if (_data) {
             this.firstName = _data["firstName"];
             this.lastName = _data["lastName"];
@@ -226,9 +228,11 @@ export class RegisterUserDetails implements IRegisterUserDetails {
         }
     }
 
-    static fromJS(data: any, _mappings?: any): RegisterUserDetails | null {
+    static fromJS(data: any): RegisterUserDetails {
         data = typeof data === 'object' ? data : {};
-        return createInstance<RegisterUserDetails>(data, _mappings, RegisterUserDetails);
+        let result = new RegisterUserDetails();
+        result.init(data);
+        return result;
     }
 
     toJSON(data?: any) {
@@ -270,16 +274,18 @@ export class UserDetails implements IUserDetails {
         }
     }
 
-    init(_data?: any, _mappings?: any) {
+    init(_data?: any) {
         if (_data) {
             this.userName = _data["userName"];
             this.password = _data["password"];
         }
     }
 
-    static fromJS(data: any, _mappings?: any): UserDetails | null {
+    static fromJS(data: any): UserDetails {
         data = typeof data === 'object' ? data : {};
-        return createInstance<UserDetails>(data, _mappings, UserDetails);
+        let result = new UserDetails();
+        result.init(data);
+        return result;
     }
 
     toJSON(data?: any) {
@@ -317,7 +323,7 @@ export class WeatherForecast implements IWeatherForecast {
         }
     }
 
-    init(_data?: any, _mappings?: any) {
+    init(_data?: any) {
         if (_data) {
             this.date = _data["date"] ? new Date(_data["date"].toString()) : <any>undefined;
             this.temperatureC = _data["temperatureC"];
@@ -326,9 +332,11 @@ export class WeatherForecast implements IWeatherForecast {
         }
     }
 
-    static fromJS(data: any, _mappings?: any): WeatherForecast | null {
+    static fromJS(data: any): WeatherForecast {
         data = typeof data === 'object' ? data : {};
-        return createInstance<WeatherForecast>(data, _mappings, WeatherForecast);
+        let result = new WeatherForecast();
+        result.init(data);
+        return result;
     }
 
     toJSON(data?: any) {
@@ -353,67 +361,6 @@ export interface IWeatherForecast {
     temperatureC: number;
     temperatureF: number;
     summary?: string | undefined;
-}
-
-function jsonParse(json: any, reviver?: any) {
-    json = JSON.parse(json, reviver);
-
-    var byid: any = {};
-    var refs: any = [];
-    json = (function recurse(obj: any, prop?: any, parent?: any) {
-        if (typeof obj !== 'object' || !obj)
-            return obj;
-        
-        if ("$ref" in obj) {
-            let ref = obj.$ref;
-            if (ref in byid)
-                return byid[ref];
-            refs.push([parent, prop, ref]);
-            return undefined;
-        } else if ("$id" in obj) {
-            let id = obj.$id;
-            delete obj.$id;
-            if ("$values" in obj)
-                obj = obj.$values;
-            byid[id] = obj;
-        }
-        
-        if (Array.isArray(obj)) {
-            obj = obj.map((v, i) => recurse(v, i, obj));
-        } else {
-            for (var p in obj) {
-                if (obj.hasOwnProperty(p) && obj[p] && typeof obj[p] === 'object')
-                    obj[p] = recurse(obj[p], p, obj);
-            }
-        }
-
-        return obj;
-    })(json);
-
-    for (let i = 0; i < refs.length; i++) {
-        const ref = refs[i];
-        ref[0][ref[1]] = byid[ref[2]];
-    }
-
-    return json;
-}
-
-function createInstance<T>(data: any, mappings: any, type: any): T | null {
-  if (!mappings)
-    mappings = [];
-  if (!data)
-    return null;
-
-  const mappingIndexName = "__mappingIndex";
-  if (data[mappingIndexName])
-    return <T>mappings[data[mappingIndexName]].target;
-
-  data[mappingIndexName] = mappings.length;
-
-  let result: any = new type();
-  mappings.push({ source: data, target: result });
-  result.init(data, mappings);
-  return result;
 }
 
 export interface FileResponse {
