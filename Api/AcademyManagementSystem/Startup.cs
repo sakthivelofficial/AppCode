@@ -1,3 +1,5 @@
+using AcademyManagementSystem.Manager;
+using AcademyManagementSystem.Manager.Interface;
 using AcademyManagementSystem.Repository;
 using AcademyManagementSystem.Repository.Interface;
 using Microsoft.AspNetCore.Builder;
@@ -37,7 +39,9 @@ namespace AcademyManagementSystem
       //});
       services.AddControllers();
       services.AddTransient<IAuthentication, Authentication>();
-      services.AddSwaggerDocument();
+            services.AddTransient<IStudentRepository, StudentRespository>();
+            services.AddTransient<IStudentManager, StudentManager>();
+            services.AddSwaggerDocument();
         }
 
     // This method gets called by the runtime. Use this method to configure the HTTP request pipeline.
