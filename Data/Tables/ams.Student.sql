@@ -1,3 +1,5 @@
+drop table if exists ams.Student
+
 create table ams.Student(
 StudentID int identity(1,1) Primary Key,
 FirstName varchar(200) null,
@@ -9,5 +11,6 @@ Address varchar(1000) null,
 City varchar(200) null,
 [State] varchar(200) null,
 Country varchar(300) null,
+AbroadStudent bit default 0,
 isDeleted bit default 0
 )
