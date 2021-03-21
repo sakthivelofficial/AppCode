@@ -21,6 +21,7 @@ import { DashboardComponent } from './dashboard/dashboard.component';
 import { AddFeeComponent } from './Fees/add-fee/add-fee.component';
 import { ManageFeeComponent } from './Fees/manage-fee/manage-fee.component';
 import { NgxChartsModule } from '@swimlane/ngx-charts';
+import { NgxDatatableModule } from '@swimlane/ngx-datatable';
 @NgModule({
   declarations: [
     AppComponent,
@@ -55,7 +56,8 @@ import { NgxChartsModule } from '@swimlane/ngx-charts';
     BrowserAnimationsModule,
     MatInputModule,
     MatCardModule,
-    NgxChartsModule
+    NgxChartsModule,
+    NgxDatatableModule
   ],
   providers: [],
   bootstrap: [AppComponent]

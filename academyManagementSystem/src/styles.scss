@@ -1,5 +1,8 @@
 /* You can add global styles to this file, and also import other style files */
 @import "../node_modules/@swimlane/ngx-datatable/themes/bootstrap.scss";
+@import "../node_modules/@swimlane/ngx-datatable/themes/dark.scss";
+@import "../node_modules/@swimlane/ngx-datatable/themes/material.scss";
+
 
 @font-face {
   font-family: Raleway M;
@@ -83,4 +86,25 @@ body {
 }
 .d-flex {
   display: flex;
+}
+.page-header{
+  padding: 10px 20px;
+    font-size: 24px;
+    font-family: 'Raleway B';
+}
+
+input::-webkit-outer-spin-button,
+input::-webkit-inner-spin-button {
+  -webkit-appearance: none;
+  margin: 0;
+}
+
+/* Firefox */
+input[type="number"] {
+  -moz-appearance: textfield;
+}
+
+// remove the normal outline of bootstrap
+.form-control {
+  box-shadow: none !important;
 }
