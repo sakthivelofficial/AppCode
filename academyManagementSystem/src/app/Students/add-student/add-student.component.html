@@ -1,1 +1,141 @@
-<p>add-student works!</p>
+<div class="container">
+	<h2>New Student Admission Entry</h2>
+    <mat-horizontal-stepper [linear]="isLinear" #stepper>
+    <mat-step [stepControl]="firstFormGroup">
+	<form [formGroup]="AdmissionForm">
+        <ng-template matStepLabel>Fill out your details</ng-template>
+        <div class="col-lg-8 row labelpadding">
+            <div class="col-lg-4">
+                <label class="center-block">FirstName:</label>
+            </div>
+            <div class="col-lg-4">
+                <input class="form-control" formControlName="FirstName">
+            </div>
+        </div>
+        <div class="col-lg-8 row labelpadding">
+            <div class="col-lg-4">
+                <label class="center-block">LastName:</label>
+            </div>
+            <div class="col-lg-4">
+                <input class="form-control" formControlName="LastName">
+            </div>
+        </div>
+        <div class="col-lg-8 row labelpadding">
+            <div class="col-lg-4">
+                <label class="center-block">ParentName:</label>
+            </div>
+            <div class="col-lg-4">
+                <input class="form-control" formControlName="ParentName">
+            </div>
+        </div>
+        <div class="col-lg-8 row labelpadding">
+            <div class="col-lg-4">
+                <label class="center-block">ContactNumber:</label>
+            </div>
+            <div class="col-lg-4">
+                <input class="form-control" formControlName="ContactNumber">
+            </div>
+        </div>
+        <div class="col-lg-8 row labelpadding">
+            <div class="col-lg-4">
+                <label class="center-block">EmailId:</label>
+            </div>
+            <div class="col-lg-4">
+                <input class="form-control" formControlName="EmailId">
+            </div>
+        </div>
+        <div class="col-lg-8 row labelpadding">
+            <div class="col-lg-4">
+                <label class="center-block">Address:</label>
+            </div>
+            <div class="col-lg-4">
+                <input class="form-control" formControlName="Address">
+            </div>
+        </div>
+        <div class="col-lg-8 row  labelpadding">
+            <div class="col-lg-4">
+                <label class="center-block">City:</label>
+            </div>
+            <div class="col-lg-4">
+                <input class="form-control" formControlName="City">
+            </div>
+        </div>
+        <div class="col-lg-8 row labelpadding">
+            <div class="col-lg-4">
+                <label class="center-block">State:</label>
+            </div>
+            <div class="col-lg-4">
+                <input class="form-control" formControlName="State">
+            </div>
+        </div>
+        <div class="col-lg-8 row labelpadding">
+            <div class="col-lg-4">
+                <label class="center-block">Country:</label>
+            </div>
+            <div class="col-lg-4">
+                <select class="form-control" id="countryname" formControlName="Country">
+                    <option value="">Select</option>
+                    <option value="1">Option 1</option>
+                    <option value="2">Option 2</option>
+                    <option value="3">Option 3</option>
+                    <option value="4">Option 4</option>
+                    <option value="5">Option 5</option>
+                  </select>
+            </div>
+        </div>
+        <div class="col-lg-8 row labelpadding">
+            <div class="col-lg-4">
+                <label class="center-block">IsAbroadStudent:</label>
+            </div>
+            <div class="col-lg-4">
+                <select class="form-control" id="countryname" formControlName="IsAbroadStudent">
+                    <option value="">Select</option>
+                    <option value="0">No</option>
+                    <option value="1">Yes</option>
+                  </select>
+            </div>
+        </div>
+        <button mat-button matStepperNext>Next</button>
+    </form>
+</mat-step>
+<mat-step>
+    <ng-template matStepLabel>Enter Course details</ng-template>
+    <form [formGroup]="CourseForm">
+        <ng-template matStepLabel>Fill out your details</ng-template>
+        <div class="col-lg-8 row labelpadding">
+            <div class="col-lg-4">
+                <label class="center-block">CoueseName:</label>
+            </div>
+            <div class="col-lg-4">
+                <input class="form-control" formControlName="CoueseName">
+            </div>
+        </div>
+        <div class="col-lg-8 row labelpadding">
+            <div class="col-lg-4">
+                <label class="center-block">Level:</label>
+            </div>
+            <div class="col-lg-4">
+                <input class="form-control" formControlName="Level">
+            </div>
+        </div>
+        <div class="col-lg-8 row labelpadding">
+            <div class="col-lg-4">
+                <label class="center-block">Grade:</label>
+            </div>
+            <div class="col-lg-4">
+                <input class="form-control" formControlName="Grade">
+            </div>
+        </div>
+    </form>
+    <button mat-button matStepperPrevious>Back</button>
+        <button mat-button matStepperNext>Next</button>
+</mat-step>
+<mat-step>
+    <ng-template matStepLabel>Review your Information</ng-template>
+    <div>
+      <button mat-button matStepperPrevious>Back</button>
+      <button mat-button (click)="submitadmissiondetails()">submit</button>
+    </div>
+  </mat-step>
+    </mat-horizontal-stepper>
+</div>
