@@ -22,6 +22,8 @@ import { AddFeeComponent } from './Fees/add-fee/add-fee.component';
 import { ManageFeeComponent } from './Fees/manage-fee/manage-fee.component';
 import { NgxChartsModule } from '@swimlane/ngx-charts';
 import { NgxDatatableModule } from '@swimlane/ngx-datatable';
+import {MatStepperModule} from '@angular/material/stepper';
+
 @NgModule({
   declarations: [
     AppComponent,
@@ -57,7 +59,8 @@ import { NgxDatatableModule } from '@swimlane/ngx-datatable';
     MatInputModule,
     MatCardModule,
     NgxChartsModule,
-    NgxDatatableModule
+    NgxDatatableModule,
+    MatStepperModule
   ],
   providers: [],
   bootstrap: [AppComponent]
