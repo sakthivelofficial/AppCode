@@ -133,6 +133,138 @@ export class AuthenticationClient implements IAuthenticationClient {
     }
 }
 
+export interface ICourseDetailsClient {
+    getCourseDetails(): Observable<FileResponse | null>;
+}
+
+@Injectable()
+export class CourseDetailsClient implements ICourseDetailsClient {
+    private http: HttpClient;
+    private baseUrl: string;
+    protected jsonParseReviver: ((key: string, value: any) => any) | undefined = undefined;
+
+    constructor(@Inject(HttpClient) http: HttpClient, @Optional() @Inject(API_BASE_URL) baseUrl?: string) {
+        this.http = http;
+        this.baseUrl = baseUrl !== undefined && baseUrl !== null ? baseUrl : "https://localhost:44363";
+    }
+
+    getCourseDetails(): Observable<FileResponse | null> {
+        let url_ = this.baseUrl + "/api/CourseDetails/GetCourseDetails";
+        url_ = url_.replace(/[?&]$/, "");
+
+        let options_ : any = {
+            observe: "response",
+            responseType: "blob",
+            withCredentials: true,
+            headers: new HttpHeaders({
+                "Accept": "application/octet-stream"
+            })
+        };
+
+        return this.http.request("get", url_, options_).pipe(_observableMergeMap((response_ : any) => {
+            return this.processGetCourseDetails(response_);
+        })).pipe(_observableCatch((response_: any) => {
+            if (response_ instanceof HttpResponseBase) {
+                try {
+                    return this.processGetCourseDetails(<any>response_);
+                } catch (e) {
+                    return <Observable<FileResponse | null>><any>_observableThrow(e);
+                }
+            } else
+                return <Observable<FileResponse | null>><any>_observableThrow(response_);
+        }));
+    }
+
+    protected processGetCourseDetails(response: HttpResponseBase): Observable<FileResponse | null> {
+        const status = response.status;
+        const responseBlob =
+            response instanceof HttpResponse ? response.body :
+            (<any>response).error instanceof Blob ? (<any>response).error : undefined;
+
+        let _headers: any = {}; if (response.headers) { for (let key of response.headers.keys()) { _headers[key] = response.headers.get(key); }}
+        if (status === 200 || status === 206) {
+            const contentDisposition = response.headers ? response.headers.get("content-disposition") : undefined;
+            const fileNameMatch = contentDisposition ? /filename="?([^"]*?)"?(;|$)/g.exec(contentDisposition) : undefined;
+            const fileName = fileNameMatch && fileNameMatch.length > 1 ? fileNameMatch[1] : undefined;
+            return _observableOf({ fileName: fileName, data: <any>responseBlob, status: status, headers: _headers });
+        } else if (status !== 200 && status !== 204) {
+            return blobToText(responseBlob).pipe(_observableMergeMap(_responseText => {
+            return throwException("An unexpected server error occurred.", status, _responseText, _headers);
+            }));
+        }
+        return _observableOf<FileResponse | null>(<any>null);
+    }
+}
+
+export interface IStudentsClient {
+    insertStudentAdmission(student: InsertStudent): Observable<number>;
+}
+
+@Injectable()
+export class StudentsClient implements IStudentsClient {
+    private http: HttpClient;
+    private baseUrl: string;
+    protected jsonParseReviver: ((key: string, value: any) => any) | undefined = undefined;
+
+    constructor(@Inject(HttpClient) http: HttpClient, @Optional() @Inject(API_BASE_URL) baseUrl?: string) {
+        this.http = http;
+        this.baseUrl = baseUrl !== undefined && baseUrl !== null ? baseUrl : "https://localhost:44363";
+    }
+
+    insertStudentAdmission(student: InsertStudent): Observable<number> {
+        let url_ = this.baseUrl + "/api/Students/StudentAdmission";
+        url_ = url_.replace(/[?&]$/, "");
+
+        const content_ = JSON.stringify(student);
+
+        let options_ : any = {
+            body: content_,
+            observe: "response",
+            responseType: "blob",
+            withCredentials: true,
+            headers: new HttpHeaders({
+                "Content-Type": "application/json",
+                "Accept": "application/json"
+            })
+        };
+
+        return this.http.request("post", url_, options_).pipe(_observableMergeMap((response_ : any) => {
+            return this.processInsertStudentAdmission(response_);
+        })).pipe(_observableCatch((response_: any) => {
+            if (response_ instanceof HttpResponseBase) {
+                try {
+                    return this.processInsertStudentAdmission(<any>response_);
+                } catch (e) {
+                    return <Observable<number>><any>_observableThrow(e);
+                }
+            } else
+                return <Observable<number>><any>_observableThrow(response_);
+        }));
+    }
+
+    protected processInsertStudentAdmission(response: HttpResponseBase): Observable<number> {
+        const status = response.status;
+        const responseBlob =
+            response instanceof HttpResponse ? response.body :
+            (<any>response).error instanceof Blob ? (<any>response).error : undefined;
+
+        let _headers: any = {}; if (response.headers) { for (let key of response.headers.keys()) { _headers[key] = response.headers.get(key); }}
+        if (status === 200) {
+            return blobToText(responseBlob).pipe(_observableMergeMap(_responseText => {
+            let result200: any = null;
+            let resultData200 = _responseText === "" ? null : JSON.parse(_responseText, this.jsonParseReviver);
+            result200 = resultData200 !== undefined ? resultData200 : <any>null;
+            return _observableOf(result200);
+            }));
+        } else if (status !== 200 && status !== 204) {
+            return blobToText(responseBlob).pipe(_observableMergeMap(_responseText => {
+            return throwException("An unexpected server error occurred.", status, _responseText, _headers);
+            }));
+        }
+        return _observableOf<number>(<any>null);
+    }
+}
+
 export interface IWeatherForecastClient {
     get(): Observable<WeatherForecast[]>;
 }
@@ -306,6 +438,207 @@ export class UserDetails implements IUserDetails {
 export interface IUserDetails {
     userName?: string | undefined;
     password?: string | undefined;
+}
+
+export class InsertStudent implements IInsertStudent {
+    student?: Student | undefined;
+    courses?: StudentCourse[] | undefined;
+
+    constructor(data?: IInsertStudent) {
+        if (data) {
+            for (var property in data) {
+                if (data.hasOwnProperty(property))
+                    (<any>this)[property] = (<any>data)[property];
+            }
+        }
+    }
+
+    init(_data?: any) {
+        if (_data) {
+            this.student = _data["student"] ? Student.fromJS(_data["student"]) : <any>undefined;
+            if (Array.isArray(_data["courses"])) {
+                this.courses = [] as any;
+                for (let item of _data["courses"])
+                    this.courses!.push(StudentCourse.fromJS(item));
+            }
+        }
+    }
+
+    static fromJS(data: any): InsertStudent {
+        data = typeof data === 'object' ? data : {};
+        let result = new InsertStudent();
+        result.init(data);
+        return result;
+    }
+
+    toJSON(data?: any) {
+        data = typeof data === 'object' ? data : {};
+        data["student"] = this.student ? this.student.toJSON() : <any>undefined;
+        if (Array.isArray(this.courses)) {
+            data["courses"] = [];
+            for (let item of this.courses)
+                data["courses"].push(item.toJSON());
+        }
+        return data; 
+    }
+
+    clone(): InsertStudent {
+        const json = this.toJSON();
+        let result = new InsertStudent();
+        result.init(json);
+        return result;
+    }
+}
+
+export interface IInsertStudent {
+    student?: Student | undefined;
+    courses?: StudentCourse[] | undefined;
+}
+
+export class Student implements IStudent {
+    studentID?: number | undefined;
+    firstName?: string | undefined;
+    lastName?: string | undefined;
+    parentName?: string | undefined;
+    contactNumber!: number;
+    emailId?: string | undefined;
+    address?: string | undefined;
+    city?: string | undefined;
+    state?: string | undefined;
+    country?: string | undefined;
+    abroadStudent?: boolean | undefined;
+
+    constructor(data?: IStudent) {
+        if (data) {
+            for (var property in data) {
+                if (data.hasOwnProperty(property))
+                    (<any>this)[property] = (<any>data)[property];
+            }
+        }
+    }
+
+    init(_data?: any) {
+        if (_data) {
+            this.studentID = _data["studentID"];
+            this.firstName = _data["firstName"];
+            this.lastName = _data["lastName"];
+            this.parentName = _data["parentName"];
+            this.contactNumber = _data["contactNumber"];
+            this.emailId = _data["emailId"];
+            this.address = _data["address"];
+            this.city = _data["city"];
+            this.state = _data["state"];
+            this.country = _data["country"];
+            this.abroadStudent = _data["abroadStudent"];
+        }
+    }
+
+    static fromJS(data: any): Student {
+        data = typeof data === 'object' ? data : {};
+        let result = new Student();
+        result.init(data);
+        return result;
+    }
+
+    toJSON(data?: any) {
+        data = typeof data === 'object' ? data : {};
+        data["studentID"] = this.studentID;
+        data["firstName"] = this.firstName;
+        data["lastName"] = this.lastName;
+        data["parentName"] = this.parentName;
+        data["contactNumber"] = this.contactNumber;
+        data["emailId"] = this.emailId;
+        data["address"] = this.address;
+        data["city"] = this.city;
+        data["state"] = this.state;
+        data["country"] = this.country;
+        data["abroadStudent"] = this.abroadStudent;
+        return data; 
+    }
+
+    clone(): Student {
+        const json = this.toJSON();
+        let result = new Student();
+        result.init(json);
+        return result;
+    }
+}
+
+export interface IStudent {
+    studentID?: number | undefined;
+    firstName?: string | undefined;
+    lastName?: string | undefined;
+    parentName?: string | undefined;
+    contactNumber: number;
+    emailId?: string | undefined;
+    address?: string | undefined;
+    city?: string | undefined;
+    state?: string | undefined;
+    country?: string | undefined;
+    abroadStudent?: boolean | undefined;
+}
+
+export class StudentCourse implements IStudentCourse {
+    mappingId?: number | undefined;
+    studentID?: number | undefined;
+    courseId?: number | undefined;
+    levelId?: number | undefined;
+    gradeId?: number | undefined;
+    isCompleted?: boolean | undefined;
+
+    constructor(data?: IStudentCourse) {
+        if (data) {
+            for (var property in data) {
+                if (data.hasOwnProperty(property))
+                    (<any>this)[property] = (<any>data)[property];
+            }
+        }
+    }
+
+    init(_data?: any) {
+        if (_data) {
+            this.mappingId = _data["mappingId"];
+            this.studentID = _data["studentID"];
+            this.courseId = _data["courseId"];
+            this.levelId = _data["levelId"];
+            this.gradeId = _data["gradeId"];
+            this.isCompleted = _data["isCompleted"];
+        }
+    }
+
+    static fromJS(data: any): StudentCourse {
+        data = typeof data === 'object' ? data : {};
+        let result = new StudentCourse();
+        result.init(data);
+        return result;
+    }
+
+    toJSON(data?: any) {
+        data = typeof data === 'object' ? data : {};
+        data["mappingId"] = this.mappingId;
+        data["studentID"] = this.studentID;
+        data["courseId"] = this.courseId;
+        data["levelId"] = this.levelId;
+        data["gradeId"] = this.gradeId;
+        data["isCompleted"] = this.isCompleted;
+        return data; 
+    }
+
+    clone(): StudentCourse {
+        const json = this.toJSON();
+        let result = new StudentCourse();
+        result.init(json);
+        return result;
+    }
+}
+
+export interface IStudentCourse {
+    mappingId?: number | undefined;
+    studentID?: number | undefined;
+    courseId?: number | undefined;
+    levelId?: number | undefined;
+    gradeId?: number | undefined;
+    isCompleted?: boolean | undefined;
 }
 
 export class WeatherForecast implements IWeatherForecast {
