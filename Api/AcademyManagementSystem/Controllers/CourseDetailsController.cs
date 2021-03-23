@@ -1,7 +1,9 @@
-﻿using AcademyManagementSystem.Models;
+﻿using AcademyManagementSystem.Manager.Interface;
+using AcademyManagementSystem.Models;
 using AcademyManagementSystem.Repository.Interface;
 using Microsoft.AspNetCore.Http;
 using Microsoft.AspNetCore.Mvc;
+using NSwag.Annotations;
 using System;
 using System.Collections.Generic;
 using System.Linq;
@@ -13,18 +15,18 @@ namespace AcademyManagementSystem.Controllers
     [ApiController]
     public class CourseDetailsController : ControllerBase
     {
-        private readonly ICourseDetails _courses;
-        public CourseDetailsController(ICourseDetails courses)
+        private readonly ICourseManager _courses;
+        public CourseDetailsController(ICourseManager courses)
         {
             this._courses = courses;
         }
         [Route("GetCourseDetails")]
         [HttpGet]
+        [SwaggerResponse(typeof(coursedetailsmodel))]
         public async Task<IActionResult> GetCourseDetails()
         {
-
             coursedetailsmodel coursedetails = await this._courses.GetCourseDetails();
-            return Ok();
+            return Ok(coursedetails);
         }
     }
 }
