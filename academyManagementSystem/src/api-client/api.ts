@@ -19,7 +19,9 @@ export interface IAuthenticationClient {
     validateUserProfile(usd: UserDetails): Observable<FileResponse | null>;
 }
 
-@Injectable()
+@Injectable({
+    providedIn:'root'
+})
 export class AuthenticationClient implements IAuthenticationClient {
     private http: HttpClient;
     private baseUrl: string;
@@ -137,7 +139,15 @@ export interface ICourseDetailsClient {
     getCourseDetails(): Observable<FileResponse | null>;
 }
 
+<<<<<<< HEAD
 @Injectable()
+=======
+@Injectable(
+    ({
+        providedIn:'root'
+    })
+)
+>>>>>>> main
 export class CourseDetailsClient implements ICourseDetailsClient {
     private http: HttpClient;
     private baseUrl: string;
@@ -200,7 +210,13 @@ export interface IStudentsClient {
     insertStudentAdmission(student: InsertStudent): Observable<number>;
 }
 
+<<<<<<< HEAD
 @Injectable()
+=======
+@Injectable(({
+    providedIn:'root'
+}))
+>>>>>>> main
 export class StudentsClient implements IStudentsClient {
     private http: HttpClient;
     private baseUrl: string;
