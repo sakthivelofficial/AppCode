@@ -41,6 +41,8 @@ namespace AcademyManagementSystem
       services.AddTransient<IAuthentication, Authentication>();
             services.AddTransient<IStudentRepository, StudentRespository>();
             services.AddTransient<IStudentManager, StudentManager>();
+            services.AddTransient<ICourseDetails, CourseDetails>();
+            services.AddTransient<ICourseManager, CourseManager>();
             services.AddSwaggerDocument();
         }
 

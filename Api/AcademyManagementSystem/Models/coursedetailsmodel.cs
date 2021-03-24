@@ -7,8 +7,8 @@ namespace AcademyManagementSystem.Models
 {
     public class coursedetailsmodel
     {
-        public List<coursenames>? courses { get; set; }
-        public List<CourseGrades>? grades { get; set; }
-        public List<CourseLevels>? levels { get; set; }
+        public List<coursenames> courses { get; set; }
+        public List<CourseGrades> grades { get; set; }
+        public List<CourseLevels> levels { get; set; }
     }
 }
