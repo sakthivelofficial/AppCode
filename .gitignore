@@ -1,10 +1,7 @@
-
+Api/AcademyManagementSystem/.vs
 Api/AcademyManagementSystem/bin/Debug/netcoreapp3.1/appsettings.json
 Api/AcademyManagementSystem/bin/Debug/netcoreapp3.1/AcademyManagementSystem.runtimeconfig.json
 Api/AcademyManagementSystem/bin/Debug/netcoreapp3.1/AcademyManagementSystem.runtimeconfig.dev.json
-Api/AcademyManagementSystem/bin/Debug/netcoreapp3.1/AcademyManagementSystem.runtimeconfig.json
-Api/AcademyManagementSystem/bin/Debug/netcoreapp3.1/AcademyManagementSystem.runtimeconfig.dev.json
-Api/AcademyManagementSystem/bin/Debug/netcoreapp3.1/AcademyManagementSystem.runtimeconfig.json
 academyManagementSystem/package-lock.json
 Api/AcademyManagementSystem/.vs/AcademyManagementSystem/config/applicationhost.config
 Api/AcademyManagementSystem/.vs/AcademyManagementSystem/DesignTimeBuild/.dtbcache.v2
@@ -36,24 +33,19 @@ Api/AcademyManagementSystem/obj/Debug/netcoreapp3.1/AcademyManagementSystem.asse
 Api/AcademyManagementSystem/obj/Debug/netcoreapp3.1/AcademyManagementSystem.csproj.CoreCompileInputs.cache
 Api/AcademyManagementSystem/obj/Debug/netcoreapp3.1/AcademyManagementSystem.csproj.FileListAbsolute.txt
 Api/AcademyManagementSystem/obj/Debug/netcoreapp3.1/AcademyManagementSystem.csprojAssemblyReference.cache
-Api/AcademyManagementSystem/obj/Debug/netcoreapp3.1/AcademyManagementSystem.dll
 Api/AcademyManagementSystem/obj/Debug/netcoreapp3.1/AcademyManagementSystem.genruntimeconfig.cache
-Api/AcademyManagementSystem/obj/Debug/netcoreapp3.1/AcademyManagementSystem.pdb
+
 Api/AcademyManagementSystem/obj/project.assets.json
 Api/AcademyManagementSystem/obj/project.nuget.cache
 Api/AcademyManagementSystem/.vs/AcademyManagementSystem/config/applicationhost.config
-Api/AcademyManagementSystem/.vs/AcademyManagementSystem/config/applicationhost.config
-Api/AcademyManagementSystem/.vs/AcademyManagementSystem/v16/.suo
-Api/AcademyManagementSystem/.vs/AcademyManagementSystem/v16/.suo
+
 *.cache
 Api/AcademyManagementSystem/.vs/AcademyManagementSystem/v16/.suo
 Api/AcademyManagementSystem/obj/AcademyManagementSystem.csproj.nuget.g.props
 *.props
 Api/AcademyManagementSystem/obj/project.assets.json
 *.cache
-*.suo
-Api/AcademyManagementSystem/.vs/AcademyManagementSystem/v16/*.suo
-Api/AcademyManagementSystem/.vs/AcademyManagementSystem/v16/.suo
+*.suo]
 Api/AcademyManagementSystem/appsettings.json
 Api/AcademyManagementSystem/bin/Debug/netcoreapp3.1/AcademyManagementSystem.deps.json
 Api/AcademyManagementSystem/bin/Debug/netcoreapp3.1/AcademyManagementSystem.dll
@@ -65,6 +57,9 @@ Api/AcademyManagementSystem/obj/Debug/netcoreapp3.1/AcademyManagementSystem.cspr
 Api/AcademyManagementSystem/obj/Debug/netcoreapp3.1/AcademyManagementSystem.dll
 Api/AcademyManagementSystem/obj/Debug/netcoreapp3.1/AcademyManagementSystem.genruntimeconfig.cache
 Api/AcademyManagementSystem/obj/Debug/netcoreapp3.1/AcademyManagementSystem.pdb
+<<<<<<< HEAD
+academyManagementSystem/src/api-client/api.ts
+=======
 Api/AcademyManagementSystem/.vs/AcademyManagementSystem/v16/.suo
 Api/AcademyManagementSystem/appsettings.json
 Api/AcademyManagementSystem/.vs/AcademyManagementSystem/v16/.suo
@@ -87,3 +82,4 @@ Api/AcademyManagementSystem/obj/project.assets.json
 Api/AcademyManagementSystem/obj/project.nuget.cache
 academyManagementSystem/package-lock.json
 Api/AcademyManagementSystem/.vs/AcademyManagementSystem/v16/.suo
+>>>>>>> main

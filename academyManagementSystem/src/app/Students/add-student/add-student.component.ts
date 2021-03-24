@@ -32,7 +32,7 @@ this.CourseForm = this.formBuilder.group({
   Grade: ['', Validators.required],
 });
 }
-
+isLinear = true;
   ngOnInit() {
   }
   submitadmissiondetails()
