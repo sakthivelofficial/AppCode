@@ -26,6 +26,7 @@ namespace AcademyManagementSystem.Models
         public int? CourseId { get; set; }
         public int? LevelId { get; set; }
         public int? GradeId { get; set; }
+        public int? ClassCount { get; set; }
         public bool? isCompleted { get; set; } 
     }
 

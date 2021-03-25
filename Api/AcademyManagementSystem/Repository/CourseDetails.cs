@@ -47,5 +47,30 @@ namespace AcademyManagementSystem.Repository
                 }
             }
         }
+
+        public async Task<decimal> GetFeesbyCourseID(int CourseId, int GradeId, int LevelId, int ClassCount, bool isAbroad)
+        {
+            using (IDbConnection conn = Connection)
+            {
+
+                try
+                {
+                    var sqlparam = new DynamicParameters();
+                    sqlparam.Add("@CourseID", CourseId);
+                    sqlparam.Add("@GradeId", GradeId);
+                    sqlparam.Add("@LevelId", LevelId);
+                    sqlparam.Add("@isAbroad", isAbroad);
+                    sqlparam.Add("@ClassCount", ClassCount);
+                    var result =  await conn.QueryMultipleAsync(sql: "ams.GetFeeByCourse", param: sqlparam, commandType: CommandType.StoredProcedure);
+                    decimal res = result.Read<decimal>().FirstOrDefault();
+                    return (res);
+                }
+                catch (Exception e)
+                {
+                    Console.WriteLine("Error", e);
+                    throw;
+                }
+            }
+        }
     }
 }

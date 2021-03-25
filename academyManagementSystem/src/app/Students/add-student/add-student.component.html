@@ -1,7 +1,7 @@
 <div class="page-header">New Student Admission Entry</div>
 <mat-vertical-stepper [linear]="isLinear" #stepper>
-  <mat-step [stepControl]="firstFormGroup">
-    <form [formGroup]="AdmissionForm">
+  <mat-step>
+    <div>
       <ng-template matStepLabel>Personal details</ng-template>
       <div class="d-flex">
         <div class="col-6 row labelpadding">
@@ -9,7 +9,7 @@
             <label class="center-block m-auto">First Name :</label>
           </div>
           <div class="col-8">
-            <input class="form-control" formControlName="FirstName" />
+            <input class="form-control" [(ngModel)]="insertstudent.student.firstName"/>
           </div>
         </div>
         <div class="col-6 row labelpadding">
@@ -17,7 +17,7 @@
                 <label class="center-block m-auto">Last Name :</label>
               </div>
           <div class="col-8">
-            <input class="form-control" formControlName="LastName" />
+            <input class="form-control"  [(ngModel)]="insertstudent.student.lastName"/>
           </div>
         </div>
       </div>
@@ -27,7 +27,7 @@
                 <label class="center-block m-auto">Parent Name :</label>
               </div>
           <div class="col-8">
-            <input class="form-control" formControlName="ParentName" />
+            <input class="form-control"  [(ngModel)]="insertstudent.student.parentName"/>
           </div>
         </div>
         
@@ -39,7 +39,7 @@
                 <label class="center-block m-auto">Contact No. :</label>
               </div>
           <div class="col-8">
-            <input class="form-control" formControlName="ContactNumber" type="tel" />
+            <input class="form-control" type="number"  [(ngModel)]="insertstudent.student.contactNumber"/>
           </div>
         </div>
         <div class="col-6 row labelpadding">
@@ -47,7 +47,7 @@
                 <label class="center-block m-auto">Email ID :</label>
               </div>
           <div class="col-8">
-            <input class="form-control" formControlName="EmailId" type="email"/>
+            <input class="form-control" type="email"  [(ngModel)]="insertstudent.student.emailId"/>
           </div>
         </div>
       </div>
@@ -57,7 +57,7 @@
                 <label class="center-block m-auto">Address :</label>
               </div>
           <div class="col-8">
-            <input class="form-control" formControlName="Address" />
+            <input class="form-control"  [(ngModel)]="insertstudent.student.address"/>
           </div>
         </div>
         <div class="col-6 row labelpadding">
@@ -65,7 +65,7 @@
                 <label class="center-block m-auto">City :</label>
               </div>
           <div class="col-8">
-            <input class="form-control" formControlName="City" />
+            <input class="form-control"  [(ngModel)]="insertstudent.student.city"/>
           </div>
         </div>
       </div>
@@ -76,7 +76,7 @@
                 <label class="center-block m-auto">State :</label>
               </div>
           <div class="col-8">
-            <input class="form-control" formControlName="State" />
+            <input class="form-control"  [(ngModel)]="insertstudent.student.state"/>
           </div>
         </div>
         <div class="col-6 row labelpadding">
@@ -87,31 +87,20 @@
             <select
               class="form-control"
               id="countryname"
-              formControlName="Country"
+              [(ngModel)]="studentCountry"
+              (change)="CheckNRI()"
             >
-              <option value="c" *ngFor="let c of countries" (valueChange)="CheckNRI()">{{c}}</option>
+              <option [value]="c" *ngFor="let c of countries" >{{c}}</option>
             </select>
           </div>
         </div>
       </div>
-      <!-- <div class="col-lg-8 row labelpadding">
-            <div class="col-lg-4">
-                <label class="center-block">IsAbroadStudent:</label>
-            </div>
-            <div class="col-lg-4">
-                <select class="form-control" id="countryname" formControlName="IsAbroadStudent">
-                    <option value="">Select</option>
-                    <option value="0">No</option>
-                    <option value="1">Yes</option>
-                  </select>
-            </div>
-        </div> -->
       <button mat-button matStepperNext class="float-right btn btn-success">Next</button>
-    </form>
+      </div>
   </mat-step>
   <mat-step>
     <ng-template matStepLabel>Enter Course details</ng-template>
-    <form [formGroup]="CourseForm">
+    <div>
       <ng-template matStepLabel>Fill out your details</ng-template>
       <div class="col-lg-8 row labelpadding">
         <div class="col-lg-4">
@@ -121,9 +110,9 @@
             <select
               class="form-control"
               id="countryname"
-              formControlName="CoueseName"
+              [(ngModel)]="course.courseId"
             >
-              <option value="c.courseId" *ngFor="let c of courses">{{c.courseName}}</option>
+              <option [value]="c.courseId" *ngFor="let c of courses">{{c.courseName}}</option>
             </select>
           </div>
       </div>
@@ -135,9 +124,9 @@
             <select
               class="form-control"
               id="countryname"
-              formControlName="Level"
+              [(ngModel)]="course.levelId"
             >
-              <option value="c.levelId" *ngFor="let c of levels">{{c.levelName}}</option>
+              <option [value]="c.levelId" *ngFor="let c of levels">{{c.levelName}}</option>
             </select>
           </div>
       </div>
@@ -149,9 +138,9 @@
             <select
               class="form-control"
               id="countryname"
-              formControlName="Grade"
+              [(ngModel)]="course.gradeId"
             >
-              <option value="c.gradeId" *ngFor="let c of grades">{{c.gradeName}}</option>
+              <option [value]="c.gradeId" *ngFor="let c of grades">{{c.gradeName}}</option>
             </select>
           </div>
       </div>
@@ -163,24 +152,32 @@
             <select
               class="form-control"
               id="countryname"
-              formControlName="classcount"
+              [(ngModel)]="course.classCount"
             >
-              <option value="c" *ngFor="let c of classCount">{{c}}</option>
+              <option [value]="c" *ngFor="let c of classCount">{{c}}</option>
             </select>
           </div>
       </div>
-    </form>
-    <button mat-button matStepperNext class="float-right btn btn-success ml-1">Next</button>
+    </div>
+    <button mat-button matStepperNext (click)="setCourseFee()" class="float-right btn btn-success ml-1" >Next</button>
     <button mat-button matStepperPrevious class="float-right btn btn-warning">Back</button>
   </mat-step>
   <mat-step>
-    <ng-template matStepLabel>Fee Details</ng-template>
+    <ng-template matStepLabel >Fee Details</ng-template>
     <div>
         <div class="col-6 row labelpadding">
             <div class="col-lg-4">
                 <label class="center-block">Course Fee: {{coursefee}}</label>
             </div>
         </div>
+        <div class="col-6 row labelpadding" *ngIf="isAbroadStudent">
+          <div class="col-4 d-flex">
+              <label class="center-block m-auto">Additional Fee :</label>
+            </div>
+        <div class="col-8">
+          <input class="form-control" formControlName="State" />
+        </div>
+      </div>
     </div>
   </mat-step>
   <mat-step>

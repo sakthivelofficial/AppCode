@@ -28,5 +28,14 @@ namespace AcademyManagementSystem.Controllers
             coursedetailsmodel coursedetails = await this._courses.GetCourseDetails();
             return Ok(coursedetails);
         }
+
+        [Route("GetFeesbyCourseID")]
+        [HttpGet]
+        [SwaggerResponse(typeof(decimal))]
+        public async Task<IActionResult> GetFeesbyCourseID(int CourseId, int GradeId, int LevelId, int ClassCount, bool isAbroad)
+        {
+            decimal amt = await this._courses.GetFeesbyCourseID(CourseId, GradeId, LevelId, ClassCount, isAbroad);
+            return Ok(amt);
+        }
     }
 }

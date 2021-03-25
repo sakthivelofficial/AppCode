@@ -9,5 +9,7 @@ namespace AcademyManagementSystem.Manager.Interface
     public interface ICourseManager
     {
         public Task<coursedetailsmodel> GetCourseDetails();
+        public Task<decimal> GetFeesbyCourseID(int CourseId, int GradeId, int LevelId, int ClassCount, bool isAbroad);
+
     }
 }

@@ -6,6 +6,7 @@ CourseId int not null,
 LevelId int not null,
 GradeId int not null,
 isCompleted bit default 0,
+ClassCount int null,
 isDeleted bit default 0
 )
 
