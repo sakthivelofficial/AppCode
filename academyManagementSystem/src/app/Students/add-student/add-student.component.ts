@@ -67,6 +67,7 @@ export class AddStudentComponent implements OnInit, AfterViewInit {
   submitadmissiondetails() {
     this.insertstudent.student.country = this.studentCountry;
     this.course.isCompleted = false;
+    this.insertstudent.courses = [];
     this.insertstudent.courses.push(this.course);
     this.studentsclient
       .insertStudentAdmission(this.insertstudent)

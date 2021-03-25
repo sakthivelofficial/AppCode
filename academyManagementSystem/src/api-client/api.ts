@@ -865,6 +865,7 @@ export class StudentCourse implements IStudentCourse {
     levelId?: number | undefined;
     gradeId?: number | undefined;
     classCount?: number | undefined;
+    additionalCharge?: number | undefined;
     isCompleted?: boolean | undefined;
 
     constructor(data?: IStudentCourse) {
@@ -884,6 +885,7 @@ export class StudentCourse implements IStudentCourse {
             this.levelId = _data["levelId"];
             this.gradeId = _data["gradeId"];
             this.classCount = _data["classCount"];
+            this.additionalCharge = _data["additionalCharge"];
             this.isCompleted = _data["isCompleted"];
         }
     }
@@ -903,6 +905,7 @@ export class StudentCourse implements IStudentCourse {
         data["levelId"] = this.levelId;
         data["gradeId"] = this.gradeId;
         data["classCount"] = this.classCount;
+        data["additionalCharge"] = this.additionalCharge;
         data["isCompleted"] = this.isCompleted;
         return data; 
     }
@@ -922,6 +925,7 @@ export interface IStudentCourse {
     levelId?: number | undefined;
     gradeId?: number | undefined;
     classCount?: number | undefined;
+    additionalCharge?: number | undefined;
     isCompleted?: boolean | undefined;
 }
 
