@@ -9,80 +9,105 @@
             <label class="center-block m-auto">First Name :</label>
           </div>
           <div class="col-8">
-            <input class="form-control" [(ngModel)]="insertstudent.student.firstName"/>
+            <input
+              class="form-control"
+              [(ngModel)]="insertstudent.student.firstName"
+            />
           </div>
         </div>
         <div class="col-6 row labelpadding">
-            <div class="col-4 d-flex">
-                <label class="center-block m-auto">Last Name :</label>
-              </div>
-          <div class="col-8">
-            <input class="form-control"  [(ngModel)]="insertstudent.student.lastName"/>
+          <div class="col-4 d-flex">
+            <label class="center-block m-auto">Last Name :</label>
           </div>
-        </div>
-      </div>
-      <div class="d-flex">
-        <div class="col-6 row labelpadding">
-            <div class="col-4 d-flex">
-                <label class="center-block m-auto">Parent Name :</label>
-              </div>
           <div class="col-8">
-            <input class="form-control"  [(ngModel)]="insertstudent.student.parentName"/>
-          </div>
-        </div>
-        
-      </div>
-
-      <div class="d-flex">
-        <div class="col-6 row labelpadding">
-            <div class="col-4 d-flex">
-                <label class="center-block m-auto">Contact No. :</label>
-              </div>
-          <div class="col-8">
-            <input class="form-control" type="number"  [(ngModel)]="insertstudent.student.contactNumber"/>
-          </div>
-        </div>
-        <div class="col-6 row labelpadding">
-            <div class="col-4 d-flex">
-                <label class="center-block m-auto">Email ID :</label>
-              </div>
-          <div class="col-8">
-            <input class="form-control" type="email"  [(ngModel)]="insertstudent.student.emailId"/>
+            <input
+              class="form-control"
+              [(ngModel)]="insertstudent.student.lastName"
+            />
           </div>
         </div>
       </div>
       <div class="d-flex">
         <div class="col-6 row labelpadding">
-            <div class="col-4 d-flex">
-                <label class="center-block m-auto">Address :</label>
-              </div>
-          <div class="col-8">
-            <input class="form-control"  [(ngModel)]="insertstudent.student.address"/>
+          <div class="col-4 d-flex">
+            <label class="center-block m-auto">Parent Name :</label>
           </div>
-        </div>
-        <div class="col-6 row labelpadding">
-            <div class="col-4 d-flex">
-                <label class="center-block m-auto">City :</label>
-              </div>
           <div class="col-8">
-            <input class="form-control"  [(ngModel)]="insertstudent.student.city"/>
+            <input
+              class="form-control"
+              [(ngModel)]="insertstudent.student.parentName"
+            />
           </div>
         </div>
       </div>
 
       <div class="d-flex">
         <div class="col-6 row labelpadding">
-            <div class="col-4 d-flex">
-                <label class="center-block m-auto">State :</label>
-              </div>
+          <div class="col-4 d-flex">
+            <label class="center-block m-auto">Contact No. :</label>
+          </div>
           <div class="col-8">
-            <input class="form-control"  [(ngModel)]="insertstudent.student.state"/>
+            <input
+              class="form-control"
+              type="number"
+              [(ngModel)]="insertstudent.student.contactNumber"
+            />
           </div>
         </div>
         <div class="col-6 row labelpadding">
-            <div class="col-4 d-flex">
-                <label class="center-block m-auto">Country :</label>
-            </div>
+          <div class="col-4 d-flex">
+            <label class="center-block m-auto">Email ID :</label>
+          </div>
+          <div class="col-8">
+            <input
+              class="form-control"
+              type="email"
+              [(ngModel)]="insertstudent.student.emailId"
+            />
+          </div>
+        </div>
+      </div>
+      <div class="d-flex">
+        <div class="col-6 row labelpadding">
+          <div class="col-4 d-flex">
+            <label class="center-block m-auto">Address :</label>
+          </div>
+          <div class="col-8">
+            <input
+              class="form-control"
+              [(ngModel)]="insertstudent.student.address"
+            />
+          </div>
+        </div>
+        <div class="col-6 row labelpadding">
+          <div class="col-4 d-flex">
+            <label class="center-block m-auto">City :</label>
+          </div>
+          <div class="col-8">
+            <input
+              class="form-control"
+              [(ngModel)]="insertstudent.student.city"
+            />
+          </div>
+        </div>
+      </div>
+
+      <div class="d-flex">
+        <div class="col-6 row labelpadding">
+          <div class="col-4 d-flex">
+            <label class="center-block m-auto">State :</label>
+          </div>
+          <div class="col-8">
+            <input
+              class="form-control"
+              [(ngModel)]="insertstudent.student.state"
+            />
+          </div>
+        </div>
+        <div class="col-6 row labelpadding">
+          <div class="col-4 d-flex">
+            <label class="center-block m-auto">Country :</label>
+          </div>
           <div class="col-8">
             <select
               class="form-control"
@@ -90,13 +115,15 @@
               [(ngModel)]="studentCountry"
               (change)="CheckNRI()"
             >
-              <option [value]="c" *ngFor="let c of countries" >{{c}}</option>
+              <option [value]="c" *ngFor="let c of countries">{{ c }}</option>
             </select>
           </div>
         </div>
       </div>
-      <button mat-button matStepperNext class="float-right btn btn-success">Next</button>
-      </div>
+      <button mat-button matStepperNext class="float-right btn btn-success">
+        Next
+      </button>
+    </div>
   </mat-step>
   <mat-step>
     <ng-template matStepLabel>Enter Course details</ng-template>
@@ -107,73 +134,88 @@
           <label class="center-block">CoueseName:</label>
         </div>
         <div class="col-8">
-            <select
-              class="form-control"
-              id="countryname"
-              [(ngModel)]="course.courseId"
-            >
-              <option [value]="c.courseId" *ngFor="let c of courses">{{c.courseName}}</option>
-            </select>
-          </div>
+          <select
+            class="form-control"
+            id="countryname"
+            [(ngModel)]="course.courseId"
+          >
+            <option [value]="c.courseId" *ngFor="let c of courses">
+              {{ c.courseName }}
+            </option>
+          </select>
+        </div>
       </div>
       <div class="col-lg-8 row labelpadding">
         <div class="col-lg-4">
           <label class="center-block">Level:</label>
         </div>
         <div class="col-8">
-            <select
-              class="form-control"
-              id="countryname"
-              [(ngModel)]="course.levelId"
-            >
-              <option [value]="c.levelId" *ngFor="let c of levels">{{c.levelName}}</option>
-            </select>
-          </div>
+          <select
+            class="form-control"
+            id="countryname"
+            [(ngModel)]="course.levelId"
+          >
+            <option [value]="c.levelId" *ngFor="let c of levels">
+              {{ c.levelName }}
+            </option>
+          </select>
+        </div>
       </div>
       <div class="col-lg-8 row labelpadding">
         <div class="col-lg-4">
           <label class="center-block">Grade:</label>
         </div>
         <div class="col-8">
-            <select
-              class="form-control"
-              id="countryname"
-              [(ngModel)]="course.gradeId"
-            >
-              <option [value]="c.gradeId" *ngFor="let c of grades">{{c.gradeName}}</option>
-            </select>
-          </div>
+          <select
+            class="form-control"
+            id="countryname"
+            [(ngModel)]="course.gradeId"
+          >
+            <option [value]="c.gradeId" *ngFor="let c of grades">
+              {{ c.gradeName }}
+            </option>
+          </select>
+        </div>
       </div>
       <div class="col-lg-8 row labelpadding">
         <div class="col-lg-4">
           <label class="center-block">Class Count:</label>
         </div>
         <div class="col-8">
-            <select
-              class="form-control"
-              id="countryname"
-              [(ngModel)]="course.classCount"
-            >
-              <option [value]="c" *ngFor="let c of classCount">{{c}}</option>
-            </select>
-          </div>
+          <select
+            class="form-control"
+            id="countryname"
+            [(ngModel)]="course.classCount"
+          >
+            <option [value]="c" *ngFor="let c of classCount">{{ c }}</option>
+          </select>
+        </div>
       </div>
     </div>
-    <button mat-button matStepperNext (click)="setCourseFee()" class="float-right btn btn-success ml-1" >Next</button>
-    <button mat-button matStepperPrevious class="float-right btn btn-warning">Back</button>
+    <button
+      mat-button
+      matStepperNext
+      (click)="setCourseFee()"
+      class="float-right btn btn-success ml-1"
+    >
+      Next
+    </button>
+    <button mat-button matStepperPrevious class="float-right btn btn-warning">
+      Back
+    </button>
   </mat-step>
   <mat-step>
-    <ng-template matStepLabel >Fee Details</ng-template>
+    <ng-template matStepLabel>Fee Details</ng-template>
     <div>
-        <div class="col-6 row labelpadding">
-            <div class="col-lg-4">
-                <label class="center-block">Course Fee: {{coursefee}}</label>
-            </div>
+      <div class="col-6 row labelpadding">
+        <div class="col-lg-4">
+          <label class="center-block">Course Fee: {{ coursefee }}</label>
         </div>
-        <div class="col-6 row labelpadding" *ngIf="isAbroadStudent">
-          <div class="col-4 d-flex">
-              <label class="center-block m-auto">Additional Fee :</label>
-            </div>
+      </div>
+      <div class="col-6 row labelpadding" *ngIf="isAbroadStudent">
+        <div class="col-4 d-flex">
+          <label class="center-block m-auto">Additional Fee :</label>
+        </div>
         <div class="col-8">
           <input class="form-control" formControlName="State" />
         </div>
@@ -183,31 +225,35 @@
   <mat-step>
     <ng-template matStepLabel>Review your Information</ng-template>
     <div>
-      <button (click)="submitadmissiondetails()" class="float-right btn btn-success ml-1">Submit</button>
-      <button mat-button matStepperPrevious class="float-right btn btn-warning">Back</button>
-
+      <button
+        (click)="submitadmissiondetails()"
+        class="float-right btn btn-success ml-1"
+      >
+        Submit
+      </button>
+      <button mat-button matStepperPrevious class="float-right btn btn-warning">
+        Back
+      </button>
     </div>
   </mat-step>
 </mat-vertical-stepper>
 
-
 <ng-template #success>
-    <h2 matDialogTitle>Success</h2>
-    <mat-dialog-content>
-      <p>Student Admission Success!</p>
-    </mat-dialog-content>
-    <mat-dialog-actions align="end">
-      <button mat-button matDialogClose color="primary">Dismiss</button>
-    </mat-dialog-actions>
-  </ng-template>
+  <h2 matDialogTitle>Success</h2>
+  <mat-dialog-content>
+    <p>Student Admission Success!</p>
+  </mat-dialog-content>
+  <mat-dialog-actions align="end">
+    <button mat-button matDialogClose color="primary">Dismiss</button>
+  </mat-dialog-actions>
+</ng-template>
 
-  
 <ng-template #failure>
-    <h2 matDialogTitle>Already Exists</h2>
-    <mat-dialog-content>
-      <p>Student already available in database. Check using Student ID</p>
-    </mat-dialog-content>
-    <mat-dialog-actions align="end">
-      <button mat-button matDialogClose color="primary">Dismiss</button>
-    </mat-dialog-actions>
-  </ng-template>
+  <h2 matDialogTitle>Already Exists</h2>
+  <mat-dialog-content>
+    <p>Student already available in database. Check using Student ID</p>
+  </mat-dialog-content>
+  <mat-dialog-actions align="end">
+    <button mat-button matDialogClose color="primary">Dismiss</button>
+  </mat-dialog-actions>
+</ng-template>
