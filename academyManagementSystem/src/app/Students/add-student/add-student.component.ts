@@ -35,6 +35,7 @@ export class AddStudentComponent implements OnInit, AfterViewInit {
   coursefee = 0;
   studentCountry;
   classCount = [8, 16, 32];
+  courseName='';
   @ViewChild("success", { static: true }) success: TemplateRef<any>;
   @ViewChild("failure", { static: true }) failure: TemplateRef<any>;
 
@@ -67,6 +68,7 @@ export class AddStudentComponent implements OnInit, AfterViewInit {
   submitadmissiondetails() {
     this.insertstudent.student.country = this.studentCountry;
     this.course.isCompleted = false;
+    this.insertstudent.courses = [];
     this.insertstudent.courses.push(this.course);
     this.studentsclient
       .insertStudentAdmission(this.insertstudent)

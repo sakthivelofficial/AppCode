@@ -37,8 +37,8 @@ namespace AcademyManagementSystem
         });
       });
       //});
-      services.AddControllers();
-      services.AddTransient<IAuthentication, Authentication>();
+      services.AddControllers().AddNewtonsoftJson();
+            services.AddTransient<IAuthentication, Authentication>();
             services.AddTransient<IStudentRepository, StudentRespository>();
             services.AddTransient<IStudentManager, StudentManager>();
             services.AddTransient<ICourseDetails, CourseDetails>();
