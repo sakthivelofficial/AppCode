@@ -1,7 +1,16 @@
 import { CourseDetailsClient } from "./../../../api-client/api";
-import { AfterViewInit, Component, OnInit, TemplateRef, ViewChild } from "@angular/core";
+import {
+  AfterViewInit,
+  Component,
+  OnInit,
+  TemplateRef,
+  ViewChild,
+} from "@angular/core";
 import { FormBuilder, FormGroup, Validators } from "@angular/forms";
-import { getMatIconFailedToSanitizeLiteralError, MatDialog } from "@angular/material";
+import {
+  getMatIconFailedToSanitizeLiteralError,
+  MatDialog,
+} from "@angular/material";
 import {
   Student,
   StudentsClient,
@@ -14,47 +23,28 @@ import {
   templateUrl: "./add-student.component.html",
   styleUrls: ["./add-student.component.scss"],
 })
-export class AddStudentComponent implements OnInit,AfterViewInit {
+export class AddStudentComponent implements OnInit, AfterViewInit {
   AdmissionForm: FormGroup;
   CourseForm: FormGroup;
   studentinfo: Student;
+  course = new StudentCourse();
   insertstudent = new InsertStudent();
   courses = [];
   levels = [];
   grades = [];
   coursefee = 0;
-  classCount = [8,16,32];
-  @ViewChild('success', { static: true }) success: TemplateRef<any>;
-  @ViewChild('failure', { static: true }) failure: TemplateRef<any>;
+  studentCountry;
+  classCount = [8, 16, 32];
+  @ViewChild("success", { static: true }) success: TemplateRef<any>;
+  @ViewChild("failure", { static: true }) failure: TemplateRef<any>;
 
   constructor(
-    private formBuilder: FormBuilder,
     private studentsclient: StudentsClient,
     private courseClient: CourseDetailsClient,
     private dialog: MatDialog
-  ) {
-    this.AdmissionForm = this.formBuilder.group({
-      FirstName: ["", Validators.required],
-      LastName: ["", Validators.required],
-      ParentName: ["", Validators.required],
-      ContactNumber: [null, Validators.required],
-      EmailId: ["", Validators.required],
-      Address: ["", Validators.required],
-      City: ["", Validators.required],
-      State: ["", Validators.required],
-      Country: ["", Validators.required],
-      IsAbroadStudent: [null, Validators.required]
-    });
-    this.CourseForm = this.formBuilder.group({
-      CoueseName: [null, Validators.required],
-      Level: [null, Validators.required],
-      Grade: [null, Validators.required],
-      classcount: [null, Validators.required],
-    });
-  }
+  ) {}
   isAbroadStudent = false;
-  ngAfterViewInit(): void {
-  }
+  ngAfterViewInit(): void {}
   isLinear = true;
   countries = [
     "India",
@@ -75,50 +65,47 @@ export class AddStudentComponent implements OnInit,AfterViewInit {
     });
   }
   submitadmissiondetails() {
-    this.insertstudent.student.firstName = this.AdmissionForm.get(
-      "FirstName"
-    ).value;
-    this.insertstudent.student.lastName = this.AdmissionForm.get(
-      "LastName"
-    ).value;
-    this.insertstudent.student.parentName = this.AdmissionForm.get(
-      "ParentName"
-    ).value;
-    this.insertstudent.student.contactNumber = Number(
-      this.AdmissionForm.get("ContactNumber").value
-    );
-    this.insertstudent.student.emailId = this.AdmissionForm.get(
-      "EmailId"
-    ).value;
-    this.insertstudent.student.address = this.AdmissionForm.get(
-      "Address"
-    ).value;
-    this.insertstudent.student.city = this.AdmissionForm.get("City").value;
-    this.insertstudent.student.state = this.AdmissionForm.get("State").value;
-    this.insertstudent.student.state = this.AdmissionForm.get("Country").value;
-
-    var course = new StudentCourse();
-    course.gradeId = Number(this.CourseForm.get("CoueseName").value);
-    course.courseId = Number(this.CourseForm.get("Level").value);
-    course.levelId = Number(this.CourseForm.get("Grade").value);
-    course.isCompleted = false;
-    this.insertstudent.courses.push(course);
-    this.studentsclient.insertStudentAdmission(this.insertstudent).subscribe(
-      res => {
-        if(res == 0){
+    this.insertstudent.student.country = this.studentCountry;
+    this.course.isCompleted = false;
+    this.insertstudent.courses.push(this.course);
+    this.studentsclient
+      .insertStudentAdmission(this.insertstudent)
+      .subscribe((res) => {
+        if (res == 0) {
           this.dialog.open(this.success);
         } else {
           this.dialog.open(this.failure);
         }
-      }
-    );
+      });
   }
-  CheckNRI(){
-    let country = this.AdmissionForm.get("Country").value;
-    if(country.includes('India')){
+  CheckNRI() {
+    if (this.studentCountry.includes("India")) {
       this.isAbroadStudent = false;
     } else {
       this.isAbroadStudent = true;
+    }
+  }
+
+  setCourseFee() {
+    if (
+      this.course.gradeId &&
+      this.course.courseId &&
+      this.course.classCount &&
+      this.course.levelId
+    ) {
+      this.courseClient
+        .getFeesbyCourseID(
+          this.course.courseId,
+          this.course.gradeId,
+          this.course.levelId,
+          this.course.classCount,
+          this.isAbroadStudent
+        )
+        .subscribe((res) => {
+          if (res > 0) {
+            this.coursefee = res;
+          }
+        });
     }
   }
 }

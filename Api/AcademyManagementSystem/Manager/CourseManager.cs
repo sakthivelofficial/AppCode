@@ -19,5 +19,10 @@ namespace AcademyManagementSystem.Manager
         {
             return await repository.GetCourseDetails();
         }
+
+        public async Task<decimal> GetFeesbyCourseID(int CourseId, int GradeId, int LevelId, int ClassCount, bool isAbroad)
+        {
+            return await repository.GetFeesbyCourseID( CourseId,  GradeId,  LevelId,  ClassCount,  isAbroad);
+        }
     }
 }
