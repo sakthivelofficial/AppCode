@@ -221,9 +221,65 @@
         </div>
       </div>
     </div>
+    <button
+      mat-button
+      matStepperNext
+      class="float-right btn btn-success ml-1"
+    >
+      Next
+    </button>
+    <button mat-button matStepperPrevious class="float-right btn btn-warning">
+      Back
+    </button>
   </mat-step>
   <mat-step>
     <ng-template matStepLabel>Review your Information</ng-template>
+    <div class="d-flex">
+      <div class="col-6 row labelpadding">
+        <div class="col-6">Student Name :</div>
+        <div class="col-6">{{insertstudent.student.firstName}} {{insertstudent.student.lastName}}</div>
+      </div>
+      <div class="col-6 row labelpadding">
+        <div class="col-6">Parent Name :</div>
+        <div class="col-6">{{insertstudent.student.parentName}}</div>
+      </div>
+    </div>
+    <div class="d-flex">
+      <div class="col-6 row labelpadding">
+        <div class="col-6">Contact No. :</div>
+        <div class="col-6">{{insertstudent.student.contactNumber}}</div>
+      </div>
+      <div class="col-6 row labelpadding">
+        <div class="col-6">Email Id :</div>
+        <div class="col-6">{{insertstudent.student.emailId}}</div>
+      </div>
+    </div>
+    <div class="d-flex">
+      <div class="col-6 row labelpadding">
+        <div class="col-6">Address :</div>
+        <div class="col-6">{{insertstudent.student.address}}</div>
+      </div>
+      <div class="col-6 row labelpadding">
+        <div class="col-6">City:</div>
+        <div class="col-6">{{insertstudent.student.city}}</div>
+      </div>
+    </div>
+    <div class="d-flex">
+      <div class="col-6 row labelpadding">
+        <div class="col-6">State :</div>
+        <div class="col-6">{{insertstudent.student.state}}</div>
+      </div>
+      <div class="col-6 row labelpadding">
+        <div class="col-6">Country:</div>
+        <div class="col-6">{{insertstudent.student.country}}</div>
+      </div>
+    </div>
+    <br>
+    <div class="d-flex">
+      <div class="col-3">Course :</div>
+      <div class="col-3"></div>
+    </div>
+    
     <div>
       <button
         (click)="submitadmissiondetails()"
